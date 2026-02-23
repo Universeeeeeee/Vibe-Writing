@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paper Triage - 文献筛选系统</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- 顶部导航栏 -->
+        <header class="header">
+            <h1 class="logo">📚 Paper Triage</h1>
+            <div class="header-actions">
+                <button id="refreshBtn" class="btn btn-primary">
+                    <span class="icon">🔄</span> 刷新候选
+                </button>
+                <div class="stats">
+                    <span id="pendingCount" class="stat-badge pending">待审核: 0</span>
+                    <span id="acceptedCount" class="stat-badge accepted">已通过: 0</span>
+                    <span id="rejectedCount" class="stat-badge rejected">已拒绝: 0</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- 状态筛选 Tabs -->
+        <nav class="tabs">
+            <button class="tab active" data-status="">全部</button>
+            <button class="tab" data-status="pending">待审核</button>
+            <button class="tab" data-status="accepted">已通过</button>
+            <button class="tab" data-status="rejected">已拒绝</button>
+        </nav>
+
+        <!-- 主内容区 -->
+        <main class="main-content">
+            <!-- 左侧候选列表 -->
+            <section class="candidates-panel">
+                <div id="candidatesList" class="candidates-list">
+                    <!-- 候选论文卡片将通过 JS 动态插入 -->
+                    <div class="loading">加载中...</div>
+                </div>
+                <div class="pagination">
+                    <button id="prevPage" class="btn btn-ghost" disabled>上一页</button>
+                    <span id="pageInfo">第 1 页</span>
+                    <button id="nextPage" class="btn btn-ghost">下一页</button>
+                </div>
+            </section>
+
+            <!-- 右侧详情面板 -->
+            <section class="detail-panel" id="detailPanel">
+                <div class="detail-placeholder">
+                    <div class="placeholder-icon">📄</div>
+                    <p>选择左侧论文查看详情</p>
+                    <p class="hint">快捷键: J/K 上下选择, A 通过, R 拒绝</p>
+                </div>
+            </section>
+        </main>
+
+        <!-- 拒绝理由弹窗 -->
+        <div id="rejectModal" class="modal hidden">
+            <div class="modal-content">
+                <h3>拒绝理由</h3>
+                <div class="reason-tags">
+                    <label><input type="checkbox" value="方法不符"> 方法不符</label>
+                    <label><input type="checkbox" value="数据不符"> 数据不符</label>
+                    <label><input type="checkbox" value="重复"> 重复</label>
+                    <label><input type="checkbox" value="低质量"> 低质量</label>
+                    <label><input type="checkbox" value="太旧"> 太旧</label>
+                    <label><input type="checkbox" value="综述"> 综述</label>
+                    <label><input type="checkbox" value="非本领域"> 非本领域</label>
+                </div>
+                <textarea id="rejectFreeText" placeholder="备注（可选）"></textarea>
+                <div class="modal-actions">
+                    <button id="cancelReject" class="btn btn-ghost">取消</button>
+                    <button id="confirmReject" class="btn btn-danger">确认拒绝</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

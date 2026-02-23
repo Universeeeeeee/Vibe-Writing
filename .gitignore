@@ -1,0 +1,41 @@
+# === 生成的论文输出 ===
+essay_output/
+test_output.txt
+server.log
+
+# === Markdown 笔记/文档（非代码） ===
+*.md
+# 保留 README
+!README.md
+
+# === Python 缓存 ===
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+
+# === 运行时生成的数据文件 ===
+search_outouts/candidates.json
+search_outouts/feedback.json
+search_outouts/library.json
+
+# === IDE / 编辑器配置 ===
+.vscode/
+.claude/
+.idea/
+
+# === 系统文件 ===
+nul
+Thumbs.db
+.DS_Store
+
+# === 虚拟环境 ===
+venv/
+.env/
+env/
+
+# === Word 文档 ===
+*.docx
+
+# === 杂项 ===
+*.txt
