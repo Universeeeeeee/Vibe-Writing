@@ -1,3 +1,9 @@
+[中文](#中文) | [English](#english)
+
+---
+
+# 中文
+
 # Vibe Writing - 学术论文智能检索与分拣系统
 
 一个基于 MCP (Model Context Protocol) 的学术论文自动检索、筛选与分拣系统。支持同时从 **arXiv、PubMed、Semantic Scholar** 三大学术数据库检索论文，适用于任何需要跨库文献检索的研究领域。
@@ -58,6 +64,75 @@ uvicorn api:app --reload --port 8000
 - **检索**：arxiv API, PubMed/Entrez, Semantic Scholar API (httpx)
 - **前端**：HTML/CSS/JavaScript
 - **数据存储**：JSON 文件
+
+## License
+
+MIT
+
+---
+
+# English
+
+# Vibe Writing - Academic Paper Search & Triage System
+
+An automated academic paper search, filtering, and triage system built on MCP (Model Context Protocol). It searches **arXiv, PubMed, and Semantic Scholar** simultaneously, suitable for any research field that requires cross-database literature retrieval.
+
+## Features
+
+- **Tri-Database Search**: Calls arXiv, PubMed, and Semantic Scholar APIs simultaneously, covering three major academic databases in one search
+- **Smart Filtering**: Configurable gate filter strategy to automatically exclude irrelevant papers
+- **Multi-Dimensional Tags**: Automatically tags papers across multiple dimensions for classification and filtering
+- **Relevance Scoring**: Automatically computes relevance scores for sorting and prioritization
+- **Paper Triage**: Web-based frontend for browsing, screening, and providing feedback on candidate papers
+- **API Service**: FastAPI-powered backend API for search, storage, and management
+- **MCP Integration**: Runs as an MCP tool, seamlessly integrating with AI assistants
+
+> The project includes a built-in search strategy for the Gait Analysis domain as an example. You can customize the keywords and filtering rules for your own research field.
+
+## Project Structure
+
+```
+├── research_tools.py          # MCP Tool: arXiv/PubMed/Semantic Scholar search engine
+├── requirements.txt           # Python dependencies
+├── search_outouts/
+│   ├── api.py                 # FastAPI backend API
+│   ├── retriever.py           # Search dispatcher
+│   ├── storage.py             # Data persistence (JSON)
+│   └── frontend/
+│       ├── index.html         # Paper Triage frontend page
+│       ├── app.js             # Frontend logic
+│       └── style.css          # Frontend styles
+```
+
+## Quick Start
+
+### 1. Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### 2. Run as MCP Tool
+
+```bash
+python research_tools.py
+```
+
+### 3. Start Paper Triage System
+
+```bash
+cd search_outouts
+uvicorn api:app --reload --port 8000
+```
+
+Then visit `http://localhost:8000` in your browser.
+
+## Tech Stack
+
+- **Backend**: Python, FastAPI, MCP
+- **Search**: arxiv API, PubMed/Entrez, Semantic Scholar API (httpx)
+- **Frontend**: HTML/CSS/JavaScript
+- **Data Storage**: JSON files
 
 ## License
 
