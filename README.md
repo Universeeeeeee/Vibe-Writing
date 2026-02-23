@@ -20,6 +20,21 @@
 
 > 项目内置了步态分析（Gait Analysis）领域的检索策略作为示例，你可以根据自己的研究方向自定义关键词和过滤规则。
 
+## 自定义检索策略
+
+`research_tools.py` 中预置了步态分析领域的关键词配置，包括：
+
+| 变量名 | 用途 | 示例 |
+|--------|------|------|
+| `DOMAIN_KEYWORDS` | 领域词，决定论文是否属于目标领域 | `gait`, `walking`, `stride` |
+| `STRONG_SYSTEM_KEYWORDS` | 系统开发相关词，用于加分 | `system`, `platform`, `framework` |
+| `REPRODUCIBILITY_KEYWORDS` | 开源/可复现词，用于加分 | `github`, `open-source`, `dataset` |
+| `TAG_*` 系列 | 多维标签关键词 | `TAG_ACQUISITION`, `TAG_PIPELINE` 等 |
+| `EXCLUDE_KEYWORDS` | 排除词，过滤无关论文 | `rat`, `mouse`, `robot` |
+| `build_query_*()` 函数 | 各数据库的查询语句构造 | 可替换为你的研究领域查询 |
+
+**使用方法**：将上述变量中的关键词替换为你的研究领域相关词汇即可。无需修改其他文件。
+
 ## 项目结构
 
 ```
@@ -88,6 +103,21 @@ An automated academic paper search, filtering, and triage system built on MCP (M
 - **MCP Integration**: Runs as an MCP tool, seamlessly integrating with AI assistants
 
 > The project includes a built-in search strategy for the Gait Analysis domain as an example. You can customize the keywords and filtering rules for your own research field.
+
+## Customizing Search Strategy
+
+`research_tools.py` contains pre-configured keywords for the Gait Analysis domain, including:
+
+| Variable | Purpose | Examples |
+|----------|---------|----------|
+| `DOMAIN_KEYWORDS` | Domain terms that determine if a paper belongs to the target field | `gait`, `walking`, `stride` |
+| `STRONG_SYSTEM_KEYWORDS` | System development terms for relevance scoring | `system`, `platform`, `framework` |
+| `REPRODUCIBILITY_KEYWORDS` | Open-source/reproducibility terms for scoring | `github`, `open-source`, `dataset` |
+| `TAG_*` series | Multi-dimensional tagging keywords | `TAG_ACQUISITION`, `TAG_PIPELINE`, etc. |
+| `EXCLUDE_KEYWORDS` | Exclusion terms to filter out irrelevant papers | `rat`, `mouse`, `robot` |
+| `build_query_*()` functions | Query builders for each database | Replace with your research domain queries |
+
+**How to use**: Simply replace the keywords in the variables above with terms relevant to your research field. No other files need to be modified.
 
 ## Project Structure
 
