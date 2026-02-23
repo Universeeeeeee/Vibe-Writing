@@ -1,15 +1,18 @@
 # Vibe Writing - 学术论文智能检索与分拣系统
 
-一个基于 MCP (Model Context Protocol) 的学术论文自动检索、筛选与分拣系统，专注于步态分析领域的文献综述辅助。
+一个基于 MCP (Model Context Protocol) 的学术论文自动检索、筛选与分拣系统。支持同时从 **arXiv、PubMed、Semantic Scholar** 三大学术数据库检索论文，适用于任何需要跨库文献检索的研究领域。
 
 ## 功能特点
 
-- **多源检索**：同时从 arXiv、PubMed、Semantic Scholar 三大学术数据库检索论文
-- **智能筛选**：基于宽松版门控策略（Gate Filter），自动过滤无关论文
-- **多维标签**：自动为论文打上 Acquisition / Pipeline / Software / Data 四维标签
-- **系统评分**：根据系统开发相关性计算 system_score，支持排序
+- **三库联合检索**：同时调用 arXiv、PubMed、Semantic Scholar API，一次检索覆盖三大主流学术数据库
+- **智能筛选**：基于可配置的门控策略（Gate Filter），自动过滤无关论文
+- **多维标签**：自动为论文打上多维度标签，辅助分类与筛选
+- **相关性评分**：自动计算论文与研究主题的相关性分数，支持排序
 - **Paper Triage**：Web 前端界面，支持候选论文的浏览、筛选与反馈
 - **API 服务**：基于 FastAPI 的后端 API，支持检索、存储与管理
+- **MCP 集成**：作为 MCP 工具运行，可与 AI 助手无缝集成
+
+> 项目内置了步态分析（Gait Analysis）领域的检索策略作为示例，你可以根据自己的研究方向自定义关键词和过滤规则。
 
 ## 项目结构
 
